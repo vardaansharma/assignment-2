@@ -1,16 +1,16 @@
-class object
+class Objects
 {
   PVector position;
   float radius;
   float speed;
   
   // the intial position for bubbles
-  object(float pos , boolean x)
+  Objects(int x , float s)
   {
     this.radius = 60;
-    this.position = new Pvector;
+    position = new PVector(0,0);
     
-    if(x)
+    if(x == 1)
     {
       position.x = width + radius;
       position.y = random(0,height);
@@ -18,9 +18,11 @@ class object
     else
     {
       position.y = height + radius;
-      position.x = random(0,width);
+      position.x = random(width/2+40,width);
     }
     
+    this.speed = s;
       
     
   }
+}
