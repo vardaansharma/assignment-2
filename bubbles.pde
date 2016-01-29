@@ -1,25 +1,28 @@
 class Bubbles extends Objects
 {
-  
+  float dx;
+  float dy;
     
   Bubbles( float speed , int p)
   {
     super(p, speed);
     fill( 180, 0 , 0);
     
-    
+     dy = height/2 - position.y;
+     dx = width/2 - position.x;
   }
   
   void update()
   {
-    println(position.x);
-    println(position.y);
+   // println(position.x);
+    //println(position.y);
+    stroke(0);
     ellipse(position.x, position.y, 60,60); 
     
-    float dx = width/2 - position.x;
+    
     position.x += (dx*speed);
     
-    float dy = height/2 - position.y;
+    
     position.y += (dy*speed);
     /* if( position.x > width/2)
      {
