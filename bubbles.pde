@@ -6,7 +6,7 @@ class Bubbles extends Objects
   Bubbles( float speed , int p)
   {
     super(p, speed);
-    fill( 180, 0 , 0);
+    
     
      dy = height/2 - position.y;
      dx = width/2 - position.x;
@@ -16,7 +16,8 @@ class Bubbles extends Objects
   {
    // println(position.x);
     //println(position.y);
-    stroke(0);
+    stroke( 180, 0 , 0);
+    fill( 180, 0 , 0);
     ellipse(position.x, position.y, 60,60); 
     
     

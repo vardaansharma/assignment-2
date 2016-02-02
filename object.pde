@@ -4,10 +4,14 @@ class Objects
   float radius;
   float speed;
   
+  
+  Objects()
+  {
+  }
   // the intial position for bubbles
   Objects(int x , float s)
   {
-    println(x);
+    //println(x);
     this.radius = 60;
     position = new PVector(0,0);
     
