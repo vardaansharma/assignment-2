@@ -34,6 +34,7 @@ void draw()
  */
  
  c.make();
- c.update();   
+ 
+for( int i = 0; i < bubblelist.size()
     
 }
