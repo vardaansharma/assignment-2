@@ -8,7 +8,7 @@ class center extends Objects
   float rotate;
   void make()
   {
-
+    stroke(225);
 
     pushMatrix();
     translate(width/2, height/2);

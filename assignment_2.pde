@@ -6,11 +6,13 @@ void setup()
   //bubble = new Bubbles( .009 , (int)random(0,4));
   a = 0;
   c = new center();
+  lives = 400;
 }
 
 Bubbles bubble;
 center c;
 int a;
+int lives;
 void draw()
 {
   
@@ -21,12 +23,11 @@ void draw()
  for( int i = 0 ; i < bubblelist.size() - 1 ; ++ i)
  {
    Bubbles b = bubblelist.get(i);
-   println(b.position.y);
    b.update();
    
  }
  
- if(frameCount % 20 == 0)
+ if(frameCount % 60 == 0)
  {
    Bubbles bubble = bubble = new Bubbles( .009 , (int)random(0,4));
    bubblelist.add(bubble);
@@ -35,12 +36,30 @@ void draw()
  
  c.make();
  
+ 
+////////  to remove the bubble and reduce lives ////
 for( int i = 0; i < bubblelist.size() -1 ; ++i)
 {
   if(dist(bubblelist.get(i).position.x,bubblelist.get(i).position.y,width/2,height/2) <40)
   {
     bubblelist.remove(i);
+    lives-- ;
   }
 }
+    println(lives);
     
+////// to pop the bubble /////
+}
+
+
+
+void mousePressed()
+{
+  for(int i = 0; i<bubblelist.size() -1; ++i)
+  {
+    if( dist(mouseX, mouseY, bubblelist.get(i).position.x, bubblelist.get(i).position.y) <60)
+    {
+      bubblelist.remove(i);
+    }
+  }
 }
