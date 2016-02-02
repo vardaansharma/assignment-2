@@ -17,7 +17,7 @@ void draw()
  background(0);
  stroke(255);
  point(300,300);
-/* 
+
  for( int i = 0 ; i < bubblelist.size() - 1 ; ++ i)
  {
    Bubbles b = bubblelist.get(i);
@@ -31,10 +31,16 @@ void draw()
    Bubbles bubble = bubble = new Bubbles( .009 , (int)random(0,4));
    bubblelist.add(bubble);
  }
- */
+ 
  
  c.make();
  
-for( int i = 0; i < bubblelist.size()
+for( int i = 0; i < bubblelist.size() -1 ; ++i)
+{
+  if(dist(bubblelist.get(i).position.x,bubblelist.get(i).position.y,width/2,height/2) <40)
+  {
+    bubblelist.remove(i);
+  }
+}
     
 }
