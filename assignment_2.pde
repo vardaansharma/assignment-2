@@ -6,7 +6,7 @@ void setup()
   //bubble = new Bubbles( .009 , (int)random(0,4));
   a = 0;
   c = new center();
-  lives = 4;
+  lives = 5;
 }
 
 Bubbles bubble;
@@ -46,7 +46,7 @@ for( int i = 0; i < bubblelist.size() -1 ; ++i)
     lives-- ;
   }
 }
-    println(lives);
+   // println(lives);
     
 ////// calling function to show lives 
 showlives();
@@ -69,11 +69,12 @@ void showlives()
   }
   else if ( i% 2 == 0)
   {
-    x += ( (size/lives) * (i%2) );
+    
+    x = (width/2) + ( (size/5) * (i/2) );
   }
   else
   {
-    x -= ( (size/lives) * (i%2) );
+    x = (width/2) - ( (size/5) * ((i/2)+1) );
   }
   pushMatrix();
   stroke(225,0,0);
@@ -81,9 +82,9 @@ void showlives()
   translate(x,y);
   beginShape();
   vertex(0,0);
-  bezierVertex(15,-20,10,20,0,25);
+  bezierVertex(25,-20,10,20,0,25);
   vertex(0,0);
-  bezierVertex(-15,-20,-10,20,0,25);
+  bezierVertex(-25,-20,-10,20,0,25);
   endShape();
   popMatrix();
   
