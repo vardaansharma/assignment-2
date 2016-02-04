@@ -48,10 +48,15 @@ for( int i = 0; i < bubblelist.size() -1 ; ++i)
 }
     println(lives);
     
-////// to pop the bubble /////
+////// calling function to show lives 
+showlives();
 }
 
-
+//// function to show lives 
+void showlives()
+{
+  
+}
 
 void mousePressed()
 {
