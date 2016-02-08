@@ -16,11 +16,13 @@ class Bubbles extends Objects
   {
     stroke( 180, 0 , 0);
     fill( 180, 0 , 0);
-    ellipse(position.x, position.y, size,size); 
+    //ellipse(position.x, position.y, size,size); 
+    pushMatrix();
+    translate(position.x,position.y);
+    rotate(60);
+    sphere(size/2);
+    popMatrix();
   }
-  
-  void update()
-  { 
     position.x += (dx*speed);
     
     
