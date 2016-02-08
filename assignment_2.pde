@@ -11,6 +11,8 @@ void setup()
   menu = true;
   
   menuimage = loadImage("menu.jpg");
+  
+  difficulty = 1;
 }
 
 PImage menuimage;
@@ -18,6 +20,7 @@ Bubbles bubble;
 center c;
 int a;
 int lives;
+int difficulty;
 
 boolean menu;
 void draw()
@@ -37,12 +40,18 @@ void draw()
       b.update();
     }
 
-    if (frameCount % 60 == 0)
+    if (frameCount % (60 - difficulty) == 0)
     {
-      Bubbles bubble = bubble = new Bubbles( .009, (int)random(0, 4));
+      Bubbles bubble = bubble = new Bubbles( .004, (int)random(0, 4));
       bubblelist.add(bubble);
     }
-
+    
+    
+    
+    if(frameCount % 300 == 0)
+    {
+     difficulty += 10;
+    }
 
     c.make();
     c.update();
@@ -111,8 +120,15 @@ void mousePressed()
 {
   if(menu)
   {
-    menu = !menu;
     lives =5;
+    difficulty = 1;
+    
+    for( int i = 0 ; i < bubblelist.size(); ++i)
+    {
+      bubblelist.remove(i);
+    }
+    
+    menu = !menu;
   }
   else
   {
