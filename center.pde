@@ -41,6 +41,6 @@ class center extends Objects
   
   void update()
   {
-    angle += 0.5;
+    angle += 0.01;
   }
 }
