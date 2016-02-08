@@ -45,6 +45,7 @@ void draw()
 
 
     c.make();
+    c.update();
 
 
     ////////  to remove the bubble and reduce lives ////
@@ -60,6 +61,11 @@ void draw()
 
     ////// calling function to show lives 
     showlives();
+  }
+  
+  if ( lives == 0)
+  {
+    gameover();
   }
 }
 
@@ -103,11 +109,19 @@ void showlives()
 /// mouse oresed function to see if the bubble is clicked on
 void mousePressed()
 {
-  for (int i = 0; i<bubblelist.size() -1; ++i)
+  if(menu)
   {
-    if ( dist(mouseX, mouseY, bubblelist.get(i).position.x, bubblelist.get(i).position.y) <60)
+    menu = !menu;
+    lives =5;
+  }
+  else
+  {
+    for (int i = 0; i<bubblelist.size() -1; ++i)
     {
-      bubblelist.remove(i);
+      if ( dist(mouseX, mouseY, bubblelist.get(i).position.x, bubblelist.get(i).position.y) <60)
+        {
+          bubblelist.remove(i);
+        }
     }
   }
 }
@@ -122,16 +136,14 @@ void menu()
   textSize(46);
   textAlign(CENTER);
   text("click the mouse to begin ",width/2,height/2);
-  /*
-  stroke(#6B90DE);
-  fill(#96ADDB);
-  background(0);
-  translate(width/2,height/2,-500);
-  rotateY(x);
-  sphere(width/3);
-  x+=PI/2;
-  */
-  
-  
-  
+
+ 
+}
+
+
+void gameover()
+{
+  menu = true;
+  menu();
+  text("game over", width/2, height/3);
 }

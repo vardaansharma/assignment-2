@@ -6,6 +6,7 @@ class center extends Objects
   float x, y;
   float lastX, lastY;
   float rotate;
+  float angle;
   void make()
   {
     stroke(225);
@@ -17,10 +18,11 @@ class center extends Objects
     {
 
 
-      theta = ((TWO_PI)/12 * i );
+      theta = ((TWO_PI)/12 * i ) + angle;
       lastX = x; 
       lastY = y;
-      if (i % 2 == 0) {
+      if (i % 2 == 0) 
+      {
         x = sin(theta) * radius;
         y = - cos(theta) * radius;
         point(x, y);
@@ -35,5 +37,10 @@ class center extends Objects
     }
 
     popMatrix();
+  }
+  
+  void update()
+  {
+    angle += 0.5;
   }
 }
