@@ -1,4 +1,4 @@
-class center extends Objects
+class center
 {
   float theta;
   float radius = 40;

@@ -12,37 +12,22 @@ class Bubbles extends Objects
      dx = width/2 - position.x;
   }
   
-  void update()
+  void make()
   {
-   // println(position.x);
-    //println(position.y);
     stroke( 180, 0 , 0);
     fill( 180, 0 , 0);
-    ellipse(position.x, position.y, 60,60); 
+    ellipse(position.x, position.y, size,size); 
+  }
+  
+  void update()
+  {
+    
     
     
     position.x += (dx*speed);
     
     
     position.y += (dy*speed);
-    /* if( position.x > width/2)
-     {
-       position.x -= speed;
-     }
-     else if( position. x < width/2)
-     {
-       position.x += speed;
-     }
-     
-     if(position.y >height/2)
-     {
-       position.y -= speed;
-     }
-     else if( position.y < height/2)
-     {
-       position.y += speed;
-     }
-     */
   }
 }
   

@@ -1,7 +1,7 @@
-class Objects
+ abstract class Objects
 {
   PVector position;
-  float radius;
+  float size;
   float speed;
   
   
@@ -12,31 +12,33 @@ class Objects
   Objects(int x , float s)
   {
     //println(x);
-    this.radius = 60;
+    this.size = 60;
     position = new PVector(0,0);
     
     if(x == 0)
     {
-      position.x = width + radius;
-      position.y = random(0,height + radius );
+      position.x = width + size;
+      position.y = random(0,height + size );
     }
     else if( x== 1)
     {
-      position.y = height + radius;
-      position.x = random(0,width + radius);
+      position.y = height + size;
+      position.x = random(0,width + size);
     }
     else if( x ==2)
     {
-      position.x = 0 - radius;
-      position.y = random(0,height + radius);
+      position.x = 0 - size;
+      position.y = random(0,height + size);
     }
     else 
     {
-      position.y = 0-radius;
-      position.x = random(0,width + radius);
+      position.y = 0-size;
+      position.x = random(0,width + size);
     }  
     this.speed = s;
       
-    
   }
+  
+  abstract void update();
+  abstract void make();
 }

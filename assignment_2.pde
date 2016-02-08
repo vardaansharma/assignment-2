@@ -1,4 +1,4 @@
-ArrayList<Bubbles> bubblelist = new ArrayList<Bubbles>();
+ArrayList<Objects> objectlist = new ArrayList<Objects>();
 
 void setup()
 {
@@ -14,6 +14,8 @@ void setup()
   
   difficulty = 1;
   speed = 0.004;
+  
+
 }
 
 float speed;
@@ -36,16 +38,23 @@ void draw()
     stroke(255);
     point(300, 300);
 
-    for ( int i = 0; i < bubblelist.size() - 1; ++ i)
+    for ( int i = 0; i < objectlist.size() - 1; ++ i)
     {
-      Bubbles b = bubblelist.get(i);
+      Objects b = objectlist.get(i);
+      b.make();
       b.update();
     }
 
     if (frameCount % (60 - difficulty) == 0)
     {
-      Bubbles bubble = bubble = new Bubbles( speed, (int)random(0, 4));
-      bubblelist.add(bubble);
+      Bubbles bubble = new Bubbles( speed, (int)random(0, 4));
+      objectlist.add(bubble);
+    }
+    
+    if( frameCount % 180 == 0)
+    {
+      Easy easy = new Easy(speed, (int)random(0,4));
+      objectlist.add(easy);
     }
     
     if( frameCount % 180 == 0)
@@ -61,14 +70,23 @@ void draw()
     c.make();
     c.update();
 
+  
 
-    ////////  to remove the bubble and reduce lives ////
-    for ( int i = 0; i < bubblelist.size() -1; ++i)
+    ////////  collision ////
+    for ( int i = 0; i < objectlist.size() -1; ++i)
     {
-      if (dist(bubblelist.get(i).position.x, bubblelist.get(i).position.y, width/2, height/2) <40)
+      Objects temp = objectlist.get(i);
+      if( temp instanceof Bubbles )
       {
-        bubblelist.remove(i);
-        lives-- ;
+        if (dist(objectlist.get(i).position.x, objectlist.get(i).position.y, width/2, height/2) < 60)
+          {
+          objectlist.remove(temp);
+          lives-- ;
+          }
+      }
+      else 
+      {
+        println("a");
       }
     }
     // println(lives);
@@ -128,20 +146,20 @@ void mousePressed()
     lives =5;
     difficulty = 1;
     
-    for( int i = 0 ; i < bubblelist.size(); ++i)
+    for( int i = 0 ; i < objectlist.size(); ++i)
     {
-      bubblelist.remove(i);
+      objectlist.remove(i);
     }
     
     menu = !menu;
   }
   else
   {
-    for (int i = 0; i<bubblelist.size() -1; ++i)
+    for (int i = 0; i<objectlist.size() -1; ++i)
     {
-      if ( dist(mouseX, mouseY, bubblelist.get(i).position.x, bubblelist.get(i).position.y) <60)
+      if ( dist(mouseX, mouseY, objectlist.get(i).position.x, objectlist.get(i).position.y) <60)
         {
-          bubblelist.remove(i);
+          objectlist.remove(i);
         }
     }
   }
