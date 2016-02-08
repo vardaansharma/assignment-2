@@ -29,6 +29,7 @@ int difficulty;
 boolean menu;
 void draw()
 {
+  println(speed);
   if (menu)
   {
     menu();
@@ -62,7 +63,7 @@ void draw()
       speed += 0.0005;
     }
     
-    if(frameCount % 300 == 0)
+    if(frameCount % 420 == 0)
     {
      difficulty += 10;
     }
@@ -86,7 +87,7 @@ void draw()
       }
       else 
       {
-        println("a");
+       // println("a");
       }
     }
     // println(lives);
@@ -97,7 +98,7 @@ void draw()
   
   if ( lives == 0)
   {
-    gameover();
+   // gameover();
   }
 }
 
@@ -157,9 +158,16 @@ void mousePressed()
   {
     for (int i = 0; i<objectlist.size() -1; ++i)
     {
+      Object temp = objectlist.get(i);
       if ( dist(mouseX, mouseY, objectlist.get(i).position.x, objectlist.get(i).position.y) <60)
         {
           objectlist.remove(i);
+          
+          if( temp instanceof Easy )
+          {
+            speed -= 0.001;
+          }
+          
         }
     }
   }
