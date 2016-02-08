@@ -20,10 +20,7 @@ class Bubbles extends Objects
   }
   
   void update()
-  {
-    
-    
-    
+  { 
     position.x += (dx*speed);
     
     

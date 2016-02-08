@@ -51,7 +51,7 @@ void draw()
       objectlist.add(bubble);
     }
     
-    if( frameCount % 180 == 0)
+    if( frameCount % 300 == 0)
     {
       Easy easy = new Easy(speed, (int)random(0,4));
       objectlist.add(easy);
