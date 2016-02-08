@@ -13,8 +13,10 @@ void setup()
   menuimage = loadImage("menu.jpg");
   
   difficulty = 1;
+  speed = 0.004;
 }
 
+float speed;
 PImage menuimage;
 Bubbles bubble;
 center c;
@@ -42,11 +44,14 @@ void draw()
 
     if (frameCount % (60 - difficulty) == 0)
     {
-      Bubbles bubble = bubble = new Bubbles( .004, (int)random(0, 4));
+      Bubbles bubble = bubble = new Bubbles( speed, (int)random(0, 4));
       bubblelist.add(bubble);
     }
     
-    
+    if( frameCount % 180 == 0)
+    {
+      speed += 0.0005;
+    }
     
     if(frameCount % 300 == 0)
     {
