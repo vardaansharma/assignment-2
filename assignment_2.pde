@@ -8,9 +8,12 @@ void setup()
   c = new center();
   lives = 5;
 
-  menu = false;
+  menu = true;
+  
+  menuimage = loadImage("menu.jpg");
 }
 
+PImage menuimage;
 Bubbles bubble;
 center c;
 int a;
@@ -114,6 +117,11 @@ void mousePressed()
 int x = 0;
 void menu()
 {
+  background(menuimage);
+  fill(225,225,0,78);
+  textSize(46);
+  textAlign(CENTER);
+  text("click the mouse to begin ",width/2,height/2);
   /*
   stroke(#6B90DE);
   fill(#96ADDB);
