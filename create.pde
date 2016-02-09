@@ -1,6 +1,6 @@
 void create()
 {
-    c.update();
+    c.update(width/2,height/2);
     
     //making and uodating the objectlist 
     for ( int i = 0; i < objectlist.size() - 1; ++ i)

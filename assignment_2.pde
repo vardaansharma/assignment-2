@@ -16,7 +16,7 @@ void setup()
   difficulty = 1;
   speed = 0.004;
   instruction = false;
-  
+
   xpos = height/2;
   ypos = width/2;
 }
@@ -29,6 +29,7 @@ int a;
 int lives;
 int difficulty;
 
+
 boolean instruction;
 boolean menu;
 void draw()
@@ -36,8 +37,11 @@ void draw()
   if (menu)
   {
     menu();
-  } 
-  else if( !instruction)
+  } else if (instruction)
+  {
+
+    showinstruction(width/3, height/2);
+  } else
   {
     background(0);
 
@@ -65,7 +69,7 @@ void draw()
 
   if ( lives == 0)
   {
-     gameover();
+    gameover();
   }
 }
 

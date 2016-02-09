@@ -18,7 +18,6 @@ void menu()
     {
       if ( key == 'i')
       {
-        showinstructions();
         menu = false;
         instruction = true;
       }
@@ -37,8 +36,14 @@ void gameover()
   text("game over", width/2, height/3);
 }
 
-void showinstructions()
+
+
+float xpos;
+float ypos;
+
+void showinstruction(float x, float y)
 {
+  
   background(0);
   stroke(225);
   fill(225);
@@ -46,16 +51,10 @@ void showinstructions()
   text("INSTURCTIONS", width/2, height/6);
   textAlign(LEFT);
   textSize(20);
-  text("click in the white balls before they reach the balck hole",0, height/3);
-  showdemo( width/3,height/3 + 60);
-  
-  
-}
-
-float xpos;
-float ypos;
-void showdemo(float x, float y)
-{
+  text("click in the white balls before they reach the black hole",0, height/3);
+  //showdemo( width/3,height/3 + 60);
+  text("click on the cubes to slow the difficulty", 0, 3.5*(height/6));
+  text("HINT : the difficulty increases with time, so keep collecting cubes",0,5*(height/6));
   
   ellipse(xpos,y, 40,40);
   xpos++;
@@ -64,5 +63,21 @@ void showdemo(float x, float y)
   {
     xpos = x;
   }
+  
+  center temp = new center();
+  temp.update(width-(width/3), y);
+  
+  stroke(225);
+  fill(0,225,0);
+  pushMatrix();
+  translate(width/3,3.5*(height/6) + 60);
+  box(50);
+  popMatrix();
+  
+  fill(0,0,225);
+  pushMatrix();
+  translate(2*(width/3),3.5*(height/6) + 60);
+  box(50);
+  popMatrix();
   
 }

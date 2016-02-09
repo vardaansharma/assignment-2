@@ -16,7 +16,7 @@ class center
     
   }
 
-  void update()
+  void update( float xpos, float ypos)
   {
     larger=15;
     theta= 0.0f;
@@ -29,8 +29,8 @@ class center
     {
       for ( theta = 0; theta<TWO_PI; theta+=thetainc)
       {
-        x = (width/2) + sin(theta+offset - add)*larger;
-        y = (height/2) - cos(theta+offset - add)*larger;
+        x = xpos + sin(theta+offset - add)*larger;
+        y = ypos - cos(theta+offset - add)*larger;
         ellipse(x, y, spotr, spotr);
       }
       offset+=0.05f;
