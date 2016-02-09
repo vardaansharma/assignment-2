@@ -14,15 +14,20 @@ class Bubbles extends Objects
   
   void make()
   {
-    stroke( 180, 0 , 0);
-    fill( 180, 0 , 0);
+    stroke(225);
+    fill(225);
     //ellipse(position.x, position.y, size,size); 
     pushMatrix();
     translate(position.x,position.y);
+    //spotLight(0, 0, 225, width/2, height/2, 0, position.x, position.y, 0, PI/4, 2);
+    lights();
     rotate(60);
     sphere(size/2);
     popMatrix();
   }
+  
+  void update()
+  { 
     position.x += (dx*speed);
     
     

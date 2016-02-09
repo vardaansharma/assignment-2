@@ -10,6 +10,7 @@ void setup()
 
   menu = true;
   
+  moon = loadImage("moon.jpg");
   menuimage = loadImage("menu.jpg");
   
   difficulty = 1;
@@ -18,6 +19,7 @@ void setup()
 
 }
 
+PImage moon;
 float speed;
 PImage menuimage;
 Bubbles bubble;
@@ -58,17 +60,24 @@ void draw()
       objectlist.add(easy);
     }
     
+    if( frameCount % 300 == 0)
+    {
+      Difficulty easy = new Difficulty(speed, (int)random(0,4));
+      objectlist.add(easy);
+    }
+    
     if( frameCount % 180 == 0)
     {
-      speed += 0.0005;
+      speed += 0.0001;
     }
     
     if(frameCount % 420 == 0)
     {
-     difficulty += 10;
+      if( difficulty < 50)
+          difficulty += 5;
     }
 
-    c.make();
+   // c.make();
     c.update();
 
   
@@ -165,7 +174,10 @@ void mousePressed()
           
           if( temp instanceof Easy )
           {
-            speed -= 0.001;
+            if( speed > 0.004 )
+            {
+              speed -= 0.0001;
+            }
           }
           
         }
