@@ -15,6 +15,7 @@ void setup()
 
   difficulty = 1;
   speed = 0.004;
+  instruction = false;
 }
 
 float speed;
@@ -25,13 +26,15 @@ int a;
 int lives;
 int difficulty;
 
+boolean instruction;
 boolean menu;
 void draw()
 {
   if (menu)
   {
     menu();
-  } else
+  } 
+  else if( !instruction)
   {
     background(0);
 
