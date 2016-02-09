@@ -2,6 +2,9 @@ class Bubbles extends Objects
 {
   float dx;
   float dy;
+  Bubbles()
+  {
+  }
     
   Bubbles( float speed , int p)
   {
@@ -33,5 +36,7 @@ class Bubbles extends Objects
     
     position.y += (dy*speed);
   }
+  
+ 
 }
   

@@ -44,6 +44,25 @@ void showinstructions()
   fill(225);
   textAlign(CENTER);
   text("INSTURCTIONS", width/2, height/6);
+  textAlign(LEFT);
   textSize(20);
-  text("click in the white balls before they reach the balck hole",width/2, 3*(height/6));
+  text("click in the white balls before they reach the balck hole",0, height/3);
+  showdemo( width/3,height/3 + 60);
+  
+  
+}
+
+float xpos;
+float ypos;
+void showdemo(float x, float y)
+{
+  
+  ellipse(xpos,y, 40,40);
+  xpos++;
+  
+  if( xpos == width-(width/3) )
+  {
+    xpos = x;
+  }
+  
 }

@@ -16,6 +16,9 @@ void setup()
   difficulty = 1;
   speed = 0.004;
   instruction = false;
+  
+  xpos = height/2;
+  ypos = width/2;
 }
 
 float speed;
