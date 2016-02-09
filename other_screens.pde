@@ -48,6 +48,7 @@ void showinstruction(float x, float y)
   stroke(225);
   fill(225);
   textAlign(CENTER);
+  textSize(70);
   text("INSTURCTIONS", width/2, height/6);
   textAlign(LEFT);
   textSize(20);
@@ -79,5 +80,17 @@ void showinstruction(float x, float y)
   translate(2*(width/3),3.5*(height/6) + 60);
   box(50);
   popMatrix();
+  
+  
+  if ( keyPressed )
+  {
+    if ( key == ' ')
+    {
+      lives =5;
+      difficulty = 1;
+      menu =!menu;
+      instruction = false;
+    }
+  }
   
 }

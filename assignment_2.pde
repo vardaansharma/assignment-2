@@ -40,7 +40,7 @@ void draw()
   } else if (instruction)
   {
 
-    showinstruction(width/3, height/2);
+    showinstruction(width/5, height/2);
   } else
   {
     background(0);
