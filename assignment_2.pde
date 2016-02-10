@@ -1,29 +1,28 @@
-ArrayList<Objects> objectlist = new ArrayList<Objects>();
- 
- PrintWriter hs;
+ArrayList<Objects> objectlist = new ArrayList<Objects>();  // array holding every moving object in the game
+
+
 void setup()
 {
   size(600, 600, P3D);
-  //bubble = new Bubbles( .009 , (int)random(0,4));
-  a = 0;
-  c = new center();
+  //a = 0;
+  c = new center();  // object for the center black hole
   lives = 5;
 
+  //for menu and instructions
   menu = true;
-
-
   menuimage = loadImage("menu.jpg");
-
-  difficulty = 1;
-  speed = 0.004;
   instruction = false;
-
   xpos = height/2;
   ypos = width/2;
+
+  //default values setting
+  difficulty = 1;
+  speed = 0.004;
   score = 0;
   highscore = loadStrings("highscore.txt");
-  
 }
+
+
 
 float speed;
 PImage menuimage;
@@ -35,13 +34,15 @@ int difficulty;
 int score;
 
 String highscore[];
+PrintWriter hs;
 
 boolean instruction;
 boolean menu;
+
+
 void draw()
 {
-  float h = loadhighscore();
-  println(highscore[0]);
+
   if (menu)
   {
     menu();
@@ -51,55 +52,29 @@ void draw()
   } else
   {
     background(0);
-
-    create();
-
-    changedifficulty();
-
-    showlives();
-
-
-    ////////  collision ////
-    for ( int i = 0; i < objectlist.size() -1; ++i)
-    {
-      Objects temp = objectlist.get(i);
-      if ( temp instanceof Bubbles )
-      {
-        if (dist(objectlist.get(i).position.x, objectlist.get(i).position.y, width/2, height/2) < 60)
-        {
-          objectlist.remove(temp);
-          lives-- ;
-        }
-      }
-    }
-
-    textAlign(LEFT);
-    fill(225);
-    textSize(20);
-    text("SCORE : "+score, 20, 60);
     
-    if( !menu && !instruction)
-  {
-    textAlign(LEFT);
-    fill(225);
-    textSize(20);
-    text("HIGHSCORE"+(int)h, width-170,60);
-  }
+    showscore();//to show score and high score
+    
+    create(); // to create each object
+
+    changedifficulty();//to change difficulty
+
+    showlives();//to show lives
+
+    destroy();//collision
   }
 
-  
+
   if ( lives == 0)
   {
     gameover();
   }
-  
-  
 }
 
 
 
 
-/// mouse oresed function to see if the bubble is clicked on
+/// mouse presed function to see if the bubble is clicked on
 void mousePressed()
 {
   if (!menu && !instruction)

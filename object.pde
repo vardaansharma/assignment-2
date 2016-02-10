@@ -11,7 +11,6 @@
   // the intial position for bubbles
   Objects(int x , float s)
   {
-    //println(x);
     this.size = 60;
     position = new PVector(0,0);
     

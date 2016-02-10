@@ -34,3 +34,20 @@ void create()
       objectlist.add(easy);
     }
 }
+
+// collision check function
+void destroy()
+{
+  for ( int i = 0; i < objectlist.size() -1; ++i)
+    {
+      Objects temp = objectlist.get(i);
+      if ( temp instanceof Bubbles )
+      {
+        if (dist(objectlist.get(i).position.x, objectlist.get(i).position.y, width/2, height/2) < 60)
+        {
+          objectlist.remove(temp);
+          lives-- ;
+        }
+      }
+    }
+}
