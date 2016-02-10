@@ -11,10 +11,9 @@ void menu()
   {
     if ( key == ' ')
     {
-      lives =5;
-      difficulty = 1;
-      menu =!menu;
-    } else 
+      newgame();
+    }
+    else 
     {
       if ( key == 'i')
       {
@@ -89,9 +88,7 @@ void showinstruction(float x, float y)
   {
     if ( key == ' ')
     {
-      lives =5;
-      difficulty = 1;
-      menu =!menu;
+      newgame();
       instruction = false;
     }
   }
