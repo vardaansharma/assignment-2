@@ -1,5 +1,6 @@
 ArrayList<Objects> objectlist = new ArrayList<Objects>();
  
+ PrintWriter hs;
 void setup()
 {
   size(600, 600, P3D);
@@ -20,7 +21,7 @@ void setup()
   xpos = height/2;
   ypos = width/2;
   score = 0;
-  highscore = loadStrings("highscore.csv");
+  highscore = loadStrings("highscore.txt");
   
 }
 

@@ -10,9 +10,16 @@ float loadhighscore()
    
 }
 
+
 void changehighscore(float hscore)
 {
-    highscore[0] = str(score);
-    saveStrings("highscore.csv",highscore);
+    //highscore[0] = str(score);
+    hs = createWriter("highscore.txt");
+    hs.println(score);
+    hs.flush(); 
+    hs.close();
+   
+    //highscore=append(highscore,score);
+    //saveStrings("highscore.csv",highscore);
     
 }
