@@ -55,7 +55,8 @@ void showinstruction(float x, float y)
   text("click in the white balls before they reach the black hole",0, height/3);
   //showdemo( width/3,height/3 + 60);
   text("click on the cubes to slow the difficulty", 0, 3.5*(height/6));
-  text("HINT : the difficulty increases with time, so keep collecting cubes",0,5*(height/6));
+  text("HINT : the difficulty increases with time, so keep \ncollecting cubes",0,5*(height/6));
+  text("press the space bar to play ", 0, height -20);
   
   ellipse(xpos,y, 40,40);
   xpos++;

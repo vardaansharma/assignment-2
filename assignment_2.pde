@@ -19,6 +19,7 @@ void setup()
 
   xpos = height/2;
   ypos = width/2;
+  score = 0;
 }
 
 float speed;
@@ -28,7 +29,7 @@ center c;
 int a;
 int lives;
 int difficulty;
-
+int score;
 
 boolean instruction;
 boolean menu;
@@ -39,7 +40,6 @@ void draw()
     menu();
   } else if (instruction)
   {
-
     showinstruction(width/5, height/2);
   } else
   {
@@ -65,6 +65,11 @@ void draw()
         }
       }
     }
+
+    textAlign(LEFT);
+    fill(225);
+    textSize(20);
+    text("SCORE : "+score, 20, 60);
   }
 
   if ( lives == 0)
@@ -79,16 +84,7 @@ void draw()
 /// mouse oresed function to see if the bubble is clicked on
 void mousePressed()
 {
-  if (menu)
-  {
-
-    for ( int i = 0; i < objectlist.size(); ++i)
-    {
-      objectlist.remove(i);
-    }
-
-    menu = !menu;
-  } else
+  if (!menu && !instruction)
   {
     for (int i = 0; i<objectlist.size() -1; ++i)
     {
@@ -103,6 +99,12 @@ void mousePressed()
           {
             speed -= 0.0001;
           }
+        } else if ( temp instanceof Difficulty)
+        {
+          difficulty -=1;
+        } else if ( temp instanceof Bubbles )
+        {
+          score++;
         }
       }
     }

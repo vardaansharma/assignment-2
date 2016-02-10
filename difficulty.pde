@@ -20,6 +20,7 @@ class Difficulty extends Objects
 
   void make()
   {
+    stroke(0,0,225);
     fill(0, 0, 225);
     pushMatrix();
     translate(position.x, position.y);
