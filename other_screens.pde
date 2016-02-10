@@ -34,6 +34,8 @@ void gameover()
   textSize(46);
   textAlign(CENTER);
   text("game over", width/2, height/3);
+  objectlist = new ArrayList<Objects>();
+  score = 0;
 }
 
 

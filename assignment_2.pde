@@ -1,5 +1,5 @@
 ArrayList<Objects> objectlist = new ArrayList<Objects>();
-
+ 
 void setup()
 {
   size(600, 600, P3D);
@@ -20,6 +20,8 @@ void setup()
   xpos = height/2;
   ypos = width/2;
   score = 0;
+  highscore = loadStrings("highscore.csv");
+  
 }
 
 float speed;
@@ -31,10 +33,14 @@ int lives;
 int difficulty;
 int score;
 
+String highscore[];
+
 boolean instruction;
 boolean menu;
 void draw()
 {
+  float h = loadhighscore();
+  println(highscore[0]);
   if (menu)
   {
     menu();
@@ -70,12 +76,23 @@ void draw()
     fill(225);
     textSize(20);
     text("SCORE : "+score, 20, 60);
+    
+    if( !menu && !instruction)
+  {
+    textAlign(LEFT);
+    fill(225);
+    textSize(20);
+    text("HIGHSCORE"+(int)h, width-170,60);
+  }
   }
 
+  
   if ( lives == 0)
   {
     gameover();
   }
+  
+  
 }
 
 

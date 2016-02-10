@@ -22,7 +22,7 @@ class Easy extends Objects
   
   void make()
   {
-    stroke(0,225,0);
+    stroke(0,225,225);
     fill(0,225,0);
     pushMatrix();
     translate(position.x,position.y);
